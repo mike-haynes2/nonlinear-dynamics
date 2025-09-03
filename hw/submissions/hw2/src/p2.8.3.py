@@ -42,7 +42,7 @@ for i, dt in enumerate(dt_arr):
     print('estimate is 1/e = ',Xs[-1],'on step',n)
     print('error E=',round(err,6),'\n\n')
 
-print(analytical_soln)
+print('analytical soln is:', analytical_soln)
 
 
 ## part (2.8.3.c)
@@ -65,5 +65,6 @@ plt.yscale('log')
 plt.title(r'Error $E(\Delta t) \,= \,|\hat x(1) - x(t)|$')
 plt.xlim(dt_arr[0]+dt_arr[0]/10.,dt_arr[-1]-dt_arr[-1]/10.)
 plt.grid()
-plt.show()
-#plt.savefig('figure2.8.3.c.ii.png',dpi=290)
+
+
+plt.savefig('figure2.8.3.c.ii.png',dpi=290)
