@@ -56,14 +56,13 @@ plt.grid()
 plt.savefig('figure2.8.3.c.i.png',dpi=290)
 plt.clf()
 
-plt.loglog(dt_arr,errors,color='teal',lw=2,zorder=10)
-plt.scatter(dt_arr,errors,color='purple', marker='o',lw=3,zorder=10)
+plt.plot(np.log(dt_arr),np.log(errors),color='teal',lw=2,zorder=10)
+plt.scatter(np.log(dt_arr),np.log(errors),color='purple', marker='o',lw=3,zorder=10)
 plt.xlabel(r'timestep $\log{\Delta t}$')
 plt.ylabel('error $\log{E}$')
-plt.xscale('log')
-plt.yscale('log')
+
 plt.title(r'Error $E(\Delta t) \,= \,|\hat x(t=1) - x(t=1)|$')
-plt.xlim(dt_arr[0]+dt_arr[0]/10.,dt_arr[-1]-dt_arr[-1]/10.)
+#plt.xlim(dt_arr[0]+dt_arr[0]/10.,dt_arr[-1]-dt_arr[-1]/10.)
 plt.grid()
 
 
