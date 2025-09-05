@@ -1,0 +1,13 @@
+Brandon Hautumn Choi at Sun Aug 31, 2025 10:12amat Sun Aug 31, 2025 10:12am
+
+2.2.10) 10/10
+2.4.2) 10/10
+
+
+
+AW
+Alex Jacob Warhover at Wed Sep 3, 2025 5:31pmat Wed Sep 3, 2025 5:31pm
+
+2.1.5) 5/10 I don't buy water is strong enough to overdamp oscillations in this system. I'm also fairly sure that gravity would provide an equal torque in the opposite direction from the lower part of the buoy underwater. Finally, the fixed points you describe are at pi/2 and pi, not pi and 2*pi.
+2.3.3) 9/10 Did not specify that 1/b is the other fixed point
+2.4.9) 10/10
