@@ -88,9 +88,9 @@ plt.title(r'$\dot{x}=r^2+x^2;\quad r=r_c\quad (r_c=0)$')
 plt.grid()
 plt.legend()
 
-plt.savefig('3.1.5b_rErc.png',dpi=275)
+#plt.savefig('3.1.5b_rErc.png',dpi=275)
 #plt.show()
-#plt.close()
+plt.close()
 
 
 
