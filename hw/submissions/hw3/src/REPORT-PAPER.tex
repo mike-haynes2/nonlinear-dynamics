@@ -1,0 +1,528 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[draft]{agujournal2019}
+\usepackage{url} 
+%\usepackage{lineno}
+%\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
+\usepackage{soul}
+\usepackage{lscape}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{fix-cm}
+\usepackage{booktabs}
+
+
+\usepackage{graphicx}
+
+\usepackage{wrapfig}
+\usepackage{blindtext}
+%Table-related commands
+\usepackage{array}
+%\setlength{\arrayrulewidth}{1mm}
+%\setlength{\tabcolsep}{18pt}
+%\renewcommand{\arraystretch}{1.5}
+%\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+% %-------------------------------------------------------
+
+
+% defined commands
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+% "Colored Marker" commands: wrap text in, e.g., \red{...} to highlight that color
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\vel}[0]{\mathbf{u}}
+\newcommand{\B}[0]{\mathbf{B}}
+
+%uncomment this for single-spaced version
+\draftfalse
+
+\begin{document}
+\SetSinglespace{}
+% preliminary title
+\title{[PHYS 6268] Nonlinear Dynamics: Problem Set 3}
+
+% I defaulted to alphabetical last name, no preference here
+\authors{C. Michael Haynes\affil{1}}
+
+\affiliation{1}{School of Earth and Atmospheric Sciences, Georgia Institute of Technology, Atlanta GA, USA}
+
+
+\section*{Strogatz Book: Problems 3.1.2, 3.1.5, 3.2.4, 3.3.1, 3.4.3, 3.4.8, \& 3.5.7}
+
+
+
+
+
+
+
+\section{Problem 3.1.2: $\dot x = r - \cosh{x}$}
+\label{sec:p1}
+
+
+\textbf{Sketch all the qualitatively different vector
+fields that occur as $r$ is varied. Show that a saddle-node bifurcation occurs at a critical value of $r$, to be determined. Finally, sketch the bifurcation diagram of
+fixed points $x^*$ versus $r$.}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.2_rLrc.png}
+    \caption{\scriptsize{Vector field for $r<r_c$. The system displayed in this plot is governed by $\dot{x} = -\cosh{x}$ (teal)
+    %curve). There are no fixed points for this configuration of the dynamical system. 
+   }}
+    \label{fig:p1_rL}
+\end{figure}
+\par
+The critical value of $r$ occurs at $r_c=1$, where the roots of the dynamical system change. For values of $r<r_c$, the solutions $x(t)$ never grow, since $\dot x(t)<0$ for all values of $x$. 
+This is displayed in Figure (\ref{fig:p1_rL}), where the vector field and $\dot{x}(t)$ are shown for an example value of $r=0<r_c$ (teal). 
+%Values of $r\ll r_c$ do not produce qualitatively different system dynamics.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.2_rErc.png}
+    \caption{\scriptsize{Vector field for $r=r_c$. The system shown in this figure is governed by $\dot{x} = r_c-\cosh{x}$ (teal curve). There is a semi-stable fixed point in this system: as indicated by the arrow vectors, the stable direction is for trajectories that begin with values of $x(t=0)>0$.}}
+    \label{fig:p1_rE}
+\end{figure}
+\par
+At $r=r_c$, the solutions have a single, semi-stable fixed point at $x^*=0$. The solution always decreases for other values of $x$, and hence, this point is only stable when approached from the right. This corresponds to trajectories $x(t)$ of the system that are initiated with a value $x(t=0)>0$.  
+This behavior is depicted in Figure \ref{fig:p1_rE}, where the vector field is unchanged from the case of $r<r_c$. That is, the vectors indicating the direction of the solution all point towards negative values of $x$; the only difference is that for $r=r_c$, trajectories that start positive will reach the fixed point and stop moving.
+\par
+Finally, at values of $r>r_c$, there exist two fixed points, one stable and one unstable. These are given by $x^* = \pm\cosh^{-1}{(r)}$. The positive branch of the bifurcation is the stable fixed point, and the negative branch is the unstable fixed point. This is indicated by the direction of the arrows in Figure \ref{fig:p1_rG}: trajectories are attracted to the positive fixed point ($x^*>0$) and repelled from the negative one. Moving from $r<r_c$ to $r>r_c$ (i.e., Figures \ref{fig:p1_rL}-\ref{fig:p1_rG}) indicates that a bifurcation occurs in the direction of \emph{increasing} $r$.
+% as shown in Figure \ref{fig..}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.2_rGrc.png}
+    \caption{\scriptsize{Vector field for $r>r_c$. The system shown in this figure is governed by $\dot{x} = 2-\cosh{x}$ (teal curve). There are two fixed points in this system. As demonstrated by the arrow vectors, the stable fixed point is $x=+\cosh^{-1}{(2)}$, and the unstable fixed point is located at $x=-\cosh^{-1}{(2)}$.}}
+    \label{fig:p1_rG}
+\end{figure}
+This bifurcation occurs at $r=r_c=1$ and is classified as a saddle-node, since a pair of fixed points is created in the one dimensional vector field (or annihilated, depending on the direction of $r$). This is shown explicitly in the bifurcation diagram given by Figure \ref{fig:p1_bif}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.2_bifurcation.png}
+    \caption{\scriptsize{Bifurcation diagram for $\dot{x}=r-\cosh{x}$.}}
+    \label{fig:p1_bif}
+\end{figure}
+
+
+
+
+\section{Problem 3.1.5}
+\label{sec:p2}
+
+
+
+\textbf{Sketch all the qualitatively different vector
+fields that occur as $r$ is varied. Show that a saddle-node bifurcation occurs at a critical value of $r$, to be determined. Finally, sketch the bifurcation diagram of
+fixed points $x^*$ versus $r$. (Unusual bifurcations) In discussing the normal form of the saddle-node bifurcation, we mentioned the assumption that $a=\partial f / \partial r|_{(x^*,r_c)}=0$. To see what bifurcations can happen if $a=\partial f / \partial r|_{(x^*,r_c)}\neq0$, sketch the vector fields for the following examples, and then plot the fixed points as a function of $r$.}
+\par
+
+\subsection{Problem 3.1.5(a): $\dot x = r^2 - x^2$}
+\label{ssec:p2a}
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.5a_rGrc.png}
+    \caption{\scriptsize{Vector field for $r>r_c$. The system shown in this figure is governed by $\dot{x} = 1-x^2$ (teal curve). There are two fixed points in this system. As demonstrated by the arrow vectors, the stable fixed point is $x=+1$, and the unstable fixed point is located at $x=-1$.}}
+    \label{fig:p2_rG}
+\end{figure}
+We assume $r\in\mathbb{R}$. If $r$ can be complex, then there exists a case of $r^2<0$ where the vector field and associated rate of change $\dot{x}$ take a form roughly analogous to Figure \ref{fig:p1_rL}. This allows for there to be a system configuration with no fixed points. However, assuming $r$ to be real implies that there are only two qualitatively-different forms taken by the vector field: either $r^2 > 0$ and $\dot{x}$ intersects the $x$-axis twice, or $r^2=0$ and there is a double root at $\dot{x}(t),x(t)\longrightarrow(0,0)$. 
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.5a_rErc.png}
+    \caption{\scriptsize{Vector field for $r=r_c$. The system shown in this figure is governed by $\dot{x} = -x^2$ (teal curve). There is a double root in this system: as shown by the arrow vectors, the stable side of the fixed point is approaching from positive values of $x$, and the unstable direction is approached from negative $x$.}}
+    \label{fig:p2_rE}
+\end{figure}
+In the former case, the fixed points occur at $x^*=\sqrt{r^2}=\pm r$ (Figure \ref{fig:p2_bifurcation}). This is shown by the vector field in Figure \ref{fig:p2_rG}, where the system is depicted for a value of $r=1$ such that $\dot{x}=1-x^2$. As shown in the Figure, trajectories initialized at values $x(t=0)>x^*_-=-1$  will tend toward $x^*_+=+1$ as $t\longrightarrow\infty$. In the latter case (i.e., when $r^2=0$), we recover a single, semi-stable fixed point at the origin $\dot x,x\longrightarrow(0,0)$. This is depicted by the teal curve and vector field plotted in Figure \ref{fig:p2_rE}. Since the set of fixed points ``fractures" when $r$ changes from $r=r_c$ to $r\neq r_c$, a bifurcation occurs at $r=0$. This is represented by the bifurcation diagram in Figure \ref{fig:p2_bifurcation}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.5a_bifurcation.png}
+    \caption{\scriptsize{Bifurcation diagram for the system $\dot{x}=r^2-x^2$. The curve is given by $x^*=\pm r$.}}
+    \label{fig:p2_bifurcation}
+\end{figure}
+
+
+
+
+\subsection{Problem 3.1.5(b): $\dot x = r^2 + x^2$}
+\label{ssec:p2b}
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.5b_rErc.png}
+    \caption{\scriptsize{Vector field for $r=r_c$. The system shown in this figure is governed by $\dot{x} = x^2$ (teal curve). There is a double root in this system: as shown by the arrow vectors, the stable side of the fixed point is approaching from negative values of $x$, and the unstable direction is approached from negative $x$.}}
+    \label{fig:p2b_rE}
+\end{figure}
+We carry the assumption of $r$ being real. In this case, there is only a single configuration of the system ($r=0$) where there is a fixed point of $\dot{x}$. For every other value of $r\in\mathbb{R}$, $\dot{x}>0$ for all values of $x$ and $t$, causing the system trajectories to diverge. This is the fate of all trajectories for all cases of $r$ \emph{except} the trajectories subject to the case of $r=0$ and $x(t=0) \leq 0$. This system is identical to that of section \ref{ssec:p2a}, except that the parabola in $\dot x$ opens \emph{upward}. Hence, now the ``boring" side of the bifurcation lives in the reals. The associated bifurcation diagram is depicted in Figure \ref{fig:p2b_bifurcation} In order to vary the parameter $r$ and see the system saddle into two fixed points, complex values of $r$ must be considered. Figure \ref{fig:p2b_rE} includes the only non-trivial vector field from this system. The only qualitatively different one is for values of $r\neq 0$, where the system continuously increases and tends toward $\infty$ for all initial conditions $x(t=0)\in\mathbb{R}$. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.1.5b_bifurcation.png}
+    \caption{\scriptsize{Bifurcation diagram for the system $\dot{x}=r^2+x^2$. Only a single fixed point exists: $x^*(r=0)=0$.}}
+    \label{fig:p2b_bifurcation}
+\end{figure}
+
+
+
+
+\section{Problem 3.2.4: $\dot x = x(r-e^x)$}
+\label{sec:p3}
+
+\textbf{Sketch all the qualitatively different vector fields that occur as $r$ is varied. Show that a transcritical bifurcation occurs at a critical value of $r$, to be determined. Finally, sketch the bifurcation diagram of fixed points $x^*$ vs. $r$.}
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.2.4_rL0.png}
+    \caption{\scriptsize{Vector field for $r<0$. The system shown in this figure is governed by $\dot{x} = x(r-e^x)$ (teal curve). There is a single fixed point in the system at the origin. As indicated by the vector field, this equilibrium is stable. }}
+    \label{fig:p3_rL0}
+\end{figure}
+Assuming that $r\in\mathbb{R}$, there are five separate, qualitatively different forms of the vector field stemming from the dynamical system $\dot x = x(r-e^x)$. We begin with the case of $r<0$. For any negative value of $r$, there is only a single intersection between $\dot{x}$ and the $x$-axis, and hence, only a single fixed point. This case is illustrated in Figure \ref{fig:p3_rL0}, and the equilibrium point is located at the origin, $\dot{x}(t),x(t)\longrightarrow(0,0)$. In the figure, the vector field indicates that the fixed point at the origin for $r<0$ is stable. 
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.2.4_rE0.png}
+    \caption{\scriptsize{Vector field evaluated at $r=0$ for the system $\dot{x} = x(r-e^x)$ (teal curve). There is a single fixed point in the system at the origin, akin to the case in Figure \ref{fig:p3_rE0}. As indicated by the vector field, this equilibrium is stable. }}
+    \label{fig:p3_rE0}
+\end{figure}
+The vector field for the case of $r=0$ is not strongly different from negative values of $r$, however, it does yield a slightly different qualitative picture. The vector field and system for this case are illustrated in Figure \ref{fig:p3_rE0}. For $r=0$, the system becomes $\dot{x}=-xe^x$. This system still admits a stable equilibrium at the origin $\dot{x}(t),x(t)\longrightarrow(0,0)$. In contrast to Figure \ref{fig:p3_rL0}, the system asymptotically approaches $\dot{x}=0$ as $x\longrightarrow-\infty$ (see teal curve in Figure \ref{fig:p3_rE0}). The coordinate $x$ can never reach $-\infty$ unless it is initialized there, so the system will tend towards the stable equilibrium for finite initial values. 
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.2.4_rLrc.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x} = x(r-e^x)$, with the parameter $r=1/2$ (teal curve). There are two fixed points in the system. A stable one is located at the origin, as implied by the vector field. The other equilibrium occurs at $x^*=\ln{r}\approx-0.7$ and is unstable. }}
+    \label{fig:p3_rLrc}
+\end{figure}
+An interesting transition is triggered for the system as $r$ transits from negative values and approaches unity. For negative $r$ values, $\dot{x}$ asymptotically behaves like $\sim-x$, which is positive. As $r$ passes through $0$, the behavior of $\dot{x}$ for large negative $x$ values becomes asymptotically \emph{negative}. Hence, the curve ``folds over" and creates a second fixed point out of thin air. This second fixed point is located at 
+\begin{equation*}
+    \dot{x}=0\implies0=x(r-e^x) \implies x^* = \ln{r} \qquad .
+\end{equation*}
+The behavior of the system is revealed by considering this relationship. For negative values of $r$, this fixed point is undefined. The moment that $r>0$, the system has a second, negative fixed point. However, the criticality of the system exists at $r_c=1$, where the bifurcation occurs. The case of $0<r<r_c=1$ is illustrated by Figure \ref{fig:p3_rLrc}: as shown by the teal curve, the behavior for $x\longrightarrow-\infty$ changes entirely, creating a second fixed point located at $x^*=\ln{\left(1/2\right)}$. 
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.2.4_rErc.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x} = x(r-e^x)$, with the parameter $r=r_c=1$ (teal curve). In this trans-critical case, there exists a double fixed point at the origin. The fixed point is only semi-stable, as indicated by the half-filled marker and the direction of the vector field. }}
+    \label{fig:p3_rErc}
+\end{figure}
+\par
+As the parameter $r$ continues to increase, it passes through the critical point $r=r_c$, where we have the fixed point $x^*=\ln{r}$ become $x^*=0$. For this case, both factors simultaneously vanish and create a double-root. As visualized in Figure \ref{fig:p3_rErc}, the equilibrium point at the origin is only \emph{semi-stable}: the stable fixed point at the origin collides and ``merges" with the unstable fixed point $x^*=\ln{r}$. In this temporary merge, there is an exchange of stability between the two fixed points (analogous to Figure 3.2.1 in Strogatz). 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.2.4_rGrc.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x} = x(r-e^x)$, with the parameter $r=2$ (teal curve). Two equilibria exist for this system. As indicated by the vector field along the $x$-axis, the equilibrium at the origin is unstable, and the fixed point at $x^*=\ln{r}$ is stable, in contrast to Figure \ref{fig:p3_rLrc}. }}
+    \label{fig:p3_rGrc}
+\end{figure}
+As $r$ grows beyond the trans-critical value $r_c$, the stable fixed point becomes $x^*=\ln{r}$, and the equilibrium at $x=0$ becomes unstable. This is exemplified in Figure \ref{fig:p3_rGrc}, where the system at $r=2$ is shown. In this case, post trans-criticality, the stable fixed point exists for positive $x$ values and the equilibrium at the origin is only stable for a system starting at $x(t=0)=0$. 
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.2.4_bifurcation.png}
+    \caption{\scriptsize{Bifurcation diagram for the system $\dot{x}=x(r-e^x)$. The two separate equilibria are shown, and the one located at $x^*=\ln{r}$ only exists for $r>0$. The trans-critical bifurcation and exchange of stability between the two fixed points occurs at $r_c=1$.}}
+    \label{fig:p3_bifurcation}
+\end{figure}
+The system's equilibrium behavior as a function of $r$ is depicted in the bifurcation diagram, Figure \ref{fig:p3_bifurcation}. As illustrated in this plot, there exist two separate equilibria: one ($x^*=0$) exists for all values of $r\in\mathbb{R}$, and the other ($x^*=\ln{r}$) only for positive $r$. The criticality occurs at the intersection of these two curves, located at $r_c=1$.
+
+
+
+
+
+
+\section{Problem 3.3.1}
+\label{sec:p4}
+
+
+\textbf{\textit{An improved model of a laser.} In the simple laser model considered in Section 3.3, we wrote an \emph{algebraic} equation relating $N$, the number of excited atoms to $n$, the number of laser photons. In more realistic models, this would be replaced by a \emph{differential} equation. For instance, Milonni and Eberly (1988) show that after certain reasonable approximations, quantum mechanics leads to the system:}
+\begin{align*}
+    \dot n = Gn N - k n \qquad\\
+    \dot N = - G n N - f N + p \\
+\end{align*}
+\textbf{Here $G$ is the gain coefficient for stimulated emission, $k$ is the decay rate due to loss of photons by mirror transmission, scattering, etc., $f$ is the decay rate for spontaneous emission, and $p$ is the pump strength. All parameters are positive, except $p$, which can have either sign.}
+
+
+\subsection{Problem 3.3.1(a)}
+\label{ssec:p4a}
+
+\textbf{Suppose that $N$ relaxes much more rapidly than $n$. Then we may make the quasi-static approximation $\dot N\approx0$. Given this approximation, express $N(t)$ in terms of $n(t)$ and derive a first-order system for $n$. (This procedure is often called \textit{adiabatic elimination}, and one says that the evolution of $N(t)$ is slaved to that of $n(t)$. See also Haken (1983). }
+
+
+If we let $\dot{N}\approx0$, then the system becomes 
+\begin{align*}
+    \dot n = Gn N - k n \\
+     G n N + f N = p  .\\
+\end{align*}
+We can re-arrange to recover an expression $N(n(t))$ that allows us to write a first-order system for $\dot{n}$. We have that:
+\begin{equation*}
+    (G n + f)N = p \quad\implies\quad N(n(t)) = \frac{p}{f + G \, n(t) } \qquad . 
+\end{equation*}
+Then, substituting this into the expression for $\dot{n}$ yields
+\begin{equation*}
+    \dot{n} = Gn\left(\frac{p}{f + G \, n(t) }\right) - k\,n \qquad ,
+\end{equation*}
+from which we recover the first order system:
+\begin{equation}
+\label{eqn:p4}
+    \dot{n} = \left(\frac{Gp\,n}{f + G \, n }\right) - k\,n \qquad .
+\end{equation}
+
+
+
+\subsection{Problem 3.3.1(b)}
+\label{ssec:p4b}
+\textbf{Show that $n^*=0$ becomes unstable for $p>p_c$, where $p_c$ is to be determined. }
+
+The equilibria of equation (\ref{eqn:p4}) can be directly calculated. If we let $\dot{n}=0$, then we have 
+\begin{equation*}
+    \frac{Gp\,n}{f + G\,n} = k\,n \quad \implies \quad 0 = k G \,n^2 + (kf - Gp)\,n \qquad .
+\end{equation*}
+This quadratic expression has roots of $n$ given by 
+\begin{equation*}
+    n^*_\pm = -\frac{(Gp - kf)}{2kG} \pm \frac{\sqrt{(Gp - kf)^2}}{2kG} \qquad ,
+\end{equation*}
+where we can see that one root $n^*_-=0$ always. The other fixed point occurs at the value $n^*_+ = \frac{(kf-Gp)}{kG}$. The stability of the root $n^*_-$ depends on the sign of the value of $\frac{\mathrm{d}\dot{n}(n)}{\mathrm{d}n}(n^*=0)$. Then, we calculate the expression for $\frac{\mathrm{d}\dot{n}(n)}{\mathrm{d}n}(n)$:
+\begin{equation*}
+    \frac{\mathrm{d}\dot{n}(n)}{\mathrm{d}n} = \frac{\mathrm{d}}{\mathrm{d}n} \left( \frac{Gp}{f+Gn} - k \right)n=  n\left( \frac{fGp}{(f+Gn)^2}\right) + \left( \frac{Gp}{f+Gn} - k \right) \qquad ,
+\end{equation*}
+Substituting $n^*=0$, we find
+\begin{equation*}
+    \frac{\mathrm{d}\dot{n}}{\mathrm{d}n}(n^*=0) = 0 +  \left( \frac{Gp}{f} - k \right) \implies p_c = \frac{kf}{G}\qquad .
+\end{equation*}
+For values of $p>p_c$, we have that $\mathrm{sgn}\{\frac{\mathrm{d}\dot{n}}{\mathrm{d}n}(n^*=0)\}$ is positive. The sign flips for values of $p<p_c$. As $p$ passes through the critical region near $p_c$, the equilibria calculated above merge into one double root for $p=p_c$ at $x^*=0$, and that fixed point becomes stable. 
+
+
+\subsection{Problem 3.3.1(c)}
+\label{ssec:p4c}
+
+\textbf{What type of bifurcation occurs at the laser threshold $p_c$? }
+
+
+By inspection from the values of the roots $n^*_\pm$, a bifurcation occurs at $p=kf/G$ where the value of $n^*_+$ changes from positive to negative, passing through zero. When $p=p_c$, both fixed points equate to $n^*=0$, hence the criticality. As the parameter $p$ is varied through this point, one fixed point remains at zero and the other smoothly translates along the axis, through the origin. The two fixed points exchange stability when $n^*_-=n^*_+$ at $p=kf/G$. As shown in problem \ref{ssec:p4b}, the stability changes when $p=p_c$. Since one fixed point always exists ``pinned" at $n^*=0$, it just changes stability when it flips from $n^*_-$ to $n^*_+$, we classify this as a transcritical bifurcation occurring for the critical value $p=p_c$. The nature of the bifurcation can also be determined via Taylor expansion about the fixed points. 
+
+
+
+\subsection{Problem 3.3.1(d)}
+\label{ssec:p4d}
+
+\textbf{For what range of parameters is it valid to make the approximation used in (a)? }
+
+We can tell from 
+
+
+For the approximation of $\dot{N}\approx0$ to be valid, we must have that $p$ is small. A large value of pump strength $p$ would result in $\dot{N}$ being large due to the forcing. Furthermore, the rate of spontaneous emission $f$ and the gain coefficient $G$ should be $\ll1$ to ensure that the population of excited photons does not change too rapidly, either by producing desired laser emission (mediated by $G$) \emph{or} by spontaneously (and incoherently) emitting (moderated by $f$).
+
+
+
+\section{Problem 3.4.3: $\dot x = rx - 4x^3$}
+\label{sec:p5}
+
+\textbf{\textit{Pitchfork Bifurcation.} Sketch all the qualitatively different vector fields that occur as $r$ is varied. Show that a pitchfork bifurcation occurs at a critical value of $r$ (to be determined) and classify the bifurcation as supercritical or subcritical. Finally, sketch the bifurcation diagram of $x^*$ vs. $r$. }
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.3_rErc.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x}=rx-4x^3$, with the parameter $r=r_c=0$ (teal curve). This value of $r=r_c$ is critical. Hence, the system is in a state of transition between two configurations, from one with a single equilibrium to one with three. In the case of $r\leq r_c$, the only fixed point is at the origin, and it is stable, as shown by the vector field.  }}
+    \label{fig:p5_rErc}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.3_rGrc.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x}=rx-4x^3$, with the parameter $r=4$ (teal curve). This value of $r>r_c$ is post-critical, and the evidently supercritical bifurcation has already occurred. Hence, there exist three separate equilibria of the system: two symmetric about the origin and stable, as indicated by the vector field. The other equilibrium exists at the origin, and is stable only for $r\leq0$. }}
+    \label{fig:p5_rGrc}
+\end{figure}
+This system is highly similar to the normal form of the supercritical pitchfork bifurcation, given by Strogatz equation (3.4.1). The qualitative shape of the expression is not strongly changed by the leading factor on the cubic term. There exists a trivial fixed point at $x^*=0$, and the nontrivial fixed points of the system are given by:
+\begin{equation*}
+    \dot{x}=0\implies 0=rx-4x^3 \implies x^* = \frac{\pm\sqrt{r}}{2} \qquad .
+\end{equation*}
+Hence, we recover a familiar picture with two qualitatively different vector fields. 
+The first form is taken when $r\leq0$, as shown in Figure \ref{fig:p5_rErc}. In this configuration, the system only has one equilibrium at $x^*=0$. This is consistent with the equilibria calculated above, since $\sqrt{r}\in\mathbb{C}$ for $r<0$. The stable equilibrium at the origin remains qualitatively similar for all values of $r\leq r_c=0$. Hence, we show this system at $r=r_c$ to illustrate the behavior both before and at the critical stage of the bifurcation. 
+\par
+The second case exists after the supercritical pitchfork bifurcation (for increasing $r$). For $r>0$, the system admits three separate fixed points, the outer two of which are stable and symmetric about the origin. This is demonstrated by the teal curve and vector field plotted in Figure \ref{fig:p5_rGrc}. 
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.3_bifurcation.png}
+    \caption{\scriptsize{Bifurcation diagram for the system $\dot{x}=rx-4x^3$. There exists only one fixed point for the case of $r\leq0$, but a supercritical pitchfork bifurcation occurs at $r_c=0$, causing the system to fracture into two symmetric, stable fixed points on either side of the origin and an unstable equilibrium at the origin.}}
+    \label{fig:p5_bifurcation}
+\end{figure}
+The pitchfork bifurcation occurs at $r=r_c=0$, as shown in the bifurcation diagram of Figure \ref{fig:p5_bifurcation}. Since the equilibria follow $x^*=\pm\sqrt{r}/2$, they remain relatively near the origin even for large values of $r$.
+
+
+
+
+
+
+
+
+
+
+
+\section{Problem 3.4.8: $\dot x = rx - \frac{x}{1+x^2}$}
+\label{sec:p6}
+
+\textbf{\textit{Pitchfork Bifurcation.} Sketch all the qualitatively different vector fields that occur as $r$ is varied. Show that a pitchfork bifurcation occurs at a critical value of $r$ (to be determined) and classify the bifurcation as supercritical or subcritical. Finally, sketch the bifurcation diagram of $x^*$ vs. $r$. }
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.8_rL0.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x}=rx-\frac{x}{1+x^2}$, with the parameter $r=-1$ (teal curve). The system only possesses a single fixed point at the origin. As shown by the vector field, this equilibrium at the origin is stable. }}
+    \label{fig:p6_rL0}
+\end{figure}
+The equilibria of this system are given by the trivial solution, $x^*=0$, and the following two nontrivial fixed points:
+\begin{equation*}
+    \dot{x}=0 \implies rx = \frac{x}{1+x^2} \implies x^* = \pm\sqrt{\frac{1}{r}-1} \qquad .
+\end{equation*}
+From the behavior of the function $x^*(r)$, it is evident that a transition occurs at $r=0$ and $r = 1$. We consider the five different qualitative cases for the vector field: $r<0$, $0<r<1$, and $r>1$, as well as $r=0$ and $r=1$. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.8_rE0.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x}=rx-\frac{x}{1+x^2}$, with the parameter $r=0$ (teal curve). Similar to Figure \ref{fig:p6_rL0}, this system only possesses a single fixed point at the origin. As shown by the vector field, this equilibrium at the origin is stable. However, in contrast to when $r<0$, the asymptotic values of $\dot{x}$ for the system changes for large values of $|x|$ in this configuration. }}
+    \label{fig:p6_rE0}
+\end{figure}
+\par
+The first two cases are shown in Figures \ref{fig:p6_rL0} and \ref{fig:p6_rE0}. The two systems are qualitatively the same, with a single fixed point at the origin. Since the nontrivial values of $x^*$ are not well-defined in $\mathbb{R}$ for $r=0$ as well, only a single fixed point exists in this quasi-critical case. As shown in both Figures, the vector fields indicate the equilibrium at the origin is stable for this configuration of the system. 
+\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.8_rLrc.png}
+    \caption{\scriptsize{
+    Vector field for the system $\dot{x}=rx-\frac{x}{1+x^2}$, with the parameter $r=1/2$ (teal curve). 
+    This configuration of the system admits three separate fixed points, with the two away from the origin given by $x^* = \pm\sqrt{\frac{1}{r}-1}$. As shown by the vector field, these two are unstable equilibria while $x^*=0$ is a stable equilibrium.  }}
+    \label{fig:p6_rLrc}
+\end{figure}
+
+Next, we analyze the system for a value of $r$ satisfying $0<r<1$. In this configuration, there exist three fixed points, and only a single one is stable. As $r$ becomes positive the expression for the two nontrivial fixed points $x^*$ becomes real. Hence, these fixed points exist only between $r=0$ and $r=1$. This is shown in Figure \ref{fig:p6_rLrc}. The vector field and equilibria markers in this figure indicate that the only stable equilibrium exists at the origin.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.8_rErc.png}
+    \caption{\scriptsize{Vector field for the system $\dot{x}=rx-\frac{x}{1+x^2}$, with the parameter $r=r_c=1$ (teal curve). This configuration of the system only a single, unstable equilibrium.  }}
+    \label{fig:p6_rErc}
+\end{figure}
+\par
+The final case we show represents the configuration at $r\geq r_c$, where the system bifurcates. We only show for $r=1$ and not a separate case for $r>1$ since the systems are qualitatively the same. This is shown in Figure \ref{fig:p6_rErc}, where the vector field indicates the single remaining equilibrium is unstable. Thus, an exchange of stability occurred between the fixed points at the critical value $r_c=1$. This is illustrated in the bifurcation diagram, shown in Figure \ref{fig:p6_bifurcation}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/3.4.8_bifurcation.png}
+    \caption{\scriptsize{Bifurcation diagram for the system governed by $\dot{x}=rx-\frac{x}{1+x^2}$. The pitchfork bifurcation occurs moving towards $r\longrightarrow-\infty$. The critical point is located at $r_c=1$. }}
+    \label{fig:p6_bifurcation}
+\end{figure}
+\par
+As indicated by Figure \ref{fig:p6_bifurcation}, the pitchfork occurs at the critical point $r_c=1$. The exchange of stability is well-represented graphically, as the two curves representing the solutions for $x^*$ that are only valid inside the unit interval (dashed lines) ``branch" from the unstable point at $x^*=0$ when $r$ decreases from a positive number. The bifurcation that occurs at $r_c=1$ is a subcritical pitchfork bifurcation, since the pair of fixed points that branches from $x^*=0$ are unstable and branch out ``below" the bifurcation $r_c$. The bifurcation at $r=0$, when viewed from the perspective of increasing $r$, is different from a pitchfork bifurcation since the fixed points ``appear" from infinity rather than ``branching" from the origin. This behavior may be subcritical, or perhaps only quasi-critical.
+\par
+
+ 
+
+\section{Problem 3.5.7}
+\label{sec:p7}
+
+\textbf{\textit{Nondimensionalizing the logistic equation.} Consider the logistic equation $\dot N = r N (1 - N/K) $ subject to $N(0)=N_0$.} 
+
+
+
+
+
+
+\subsection{Problem 3.5.7(a)}
+\label{ssec:p7a}
+
+\textbf{This system has three dimensional parameters $r, K,$ and $N_0$. Find the dimensions of each of these parameters. }
+
+We assume that population $N$ represents a ``count" and is therefore dimensionless\footnote{If we assign a dimension of ``population" to $N$, then please replace instances of \emph{dimensionless} with \emph{population}.}. To assess the dimensions of these parameters, we consider the equation for $\dot{N}(N)$:
+\begin{equation*}
+    \frac{1}{T} = \left[\frac{\mathrm{d}N}{\mathrm{d}t}\right] = \left[ rN \left(1 - \frac{N}{K}\right) \right] \qquad .
+\end{equation*}
+Hence, we can separate the right hand side of this expression to determine the dimension of the individual parameters. Since the number $[N]$ is dimensionless, this is also the dimension of $[N_0]$ (or, possibly a dimension of population). 
+Since the two terms on the right hand side must be the same dimension to be added or subtracted, this yields:
+\begin{equation*}
+    [rN] = \quad \frac{1}{T} \quad= \left[rN\frac{N}{K}\right] \qquad .
+\end{equation*}
+Therefore, $[r]=1/T$ has a dimension of one over time, that is, it is a frequency. Moreover, the fraction $N/K$ is dimensionless, so $[K]$ must be dimensionless (in the event that population is a dimension, then $K$ would have the dimension of population; $[K]=[N]=[N_0]$).  
+
+
+\subsection{Problem 3.5.7(b)}
+\label{ssec:p7b}
+
+\textbf{Show that the system can be rewritten in the dimensionless form:
+\begin{equation*}
+    \frac{\mathrm{d}x}{\mathrm{d}\tau}= x(1-x), \qquad x(0) = x_0 
+\end{equation*}
+for appropriate choices of the dimensionless variables $x,x_0$, and $\tau$.}
+
+To nondimensionalize the equation, we begin by defining
+\begin{equation*}
+    N\longrightarrow N^* N_c \quad ; \quad t \longrightarrow t^* t_c \qquad ,
+\end{equation*}
+where $N^*=x$ and $t^*=\tau$. We substitute our dimensionless variables into the expression from problem \ref{sec:p7}:
+\begin{equation*}
+    \frac{\mathrm{d}N^* N_c}{\mathrm{d}t^*t_c} = \frac{N_c}{t_c} \frac{\mathrm{d}N^* }{\mathrm{d}t^*} = r N^* N_c \left(1 - \frac{N^*N_c}{K}\right) \qquad ,
+\end{equation*}
+which simplifies to
+\begin{equation*}
+     \frac{\mathrm{d}N^* }{\mathrm{d}t^*} = t_c r N^*  \left(1 - \frac{N^*N_c}{K}\right) \qquad .
+\end{equation*}
+If we let $N_c = K$ and $t_c = 1/r$, and replace $N^*,t^*$ with $x,t$, we recover:
+\begin{equation*}
+    \frac{\mathrm{d}x }{\mathrm{d}\tau} = x(1-x) \qquad .
+\end{equation*}
+This implies that $x_0=N_0/K$ is the initial condition for the nondimensionalized system.
+
+\subsection{Problem 3.5.7(c)}
+\label{ssec:p7c}
+
+\textbf{Find a different nondimensionalization in terms of variables $u$ and $\tau$, where $u$ is chosen such that the initial condition is always $u_0=1$.}
+
+If $u_0=u(t=0)\equiv1$ for arbitrary values of the initial condition $u_0$, we must have that the parameter $u=N/N_0$. Hence, $u(t=0) = N(t=0)/N_0 = N_0/N_0 = 1$. Then, if we let $\tau=t/r$ again, akin to section \ref{ssec:p7b}, then we find the equivalent system is
+\begin{equation*}
+    \frac{\mathrm{d}u}{\mathrm{d}\tau} = u\left(1-\frac{N_0}{K}u\right) \qquad .
+\end{equation*}
+
+
+
+
+
+
+
+
+\subsection{Problem 3.5.7(d)}
+\label{ssec:p7d}
+
+\textbf{Can you think of any advantage of one nondimensionalization over the other?}
+
+In the nondimensionalization from part \ref{ssec:p7b}, the advantage is that the nondimensionalized factors, i.e., the characteristic quantities $N_c$ and $t_c$ are physically motivated. $t_c = 1/r$ represents a characteristic time related to the maximum rate of growth of the system, and the quantity $N_c=K$ represents a dimensionless parameter that determines how far apart the two equilibria of the system are (with the trivial one fixed at the origin $x^*=0=N^*$).
+
+
+
+
+
+
+
+
+
+\clearpage
+\section{Software Usage}
+The entirety of the work was carried out on pen and paper prior to typesetting, except for the plotting: this was completed using python (\verb|numpy| and \verb|matplotlib|). 
+
+%\section{Acknowledgments}
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
+% \clearpage
+
+%\bibliography{MHD}
+\end{document}
