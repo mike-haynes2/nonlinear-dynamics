@@ -1,0 +1,571 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[draft]{agujournal2019}
+\usepackage{url} 
+%\usepackage{lineno}
+%\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
+\usepackage{soul}
+\usepackage{lscape}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{fix-cm}
+\usepackage{booktabs}
+
+\usepackage{subcaption}
+
+\usepackage{graphicx}
+
+\usepackage{wrapfig}
+\usepackage{blindtext}
+%Table-related commands
+\usepackage{array}
+%\setlength{\arrayrulewidth}{1mm}
+%\setlength{\tabcolsep}{18pt}
+%\renewcommand{\arraystretch}{1.5}
+%\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+% %-------------------------------------------------------
+
+
+% defined commands
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+% "Colored Marker" commands: wrap text in, e.g., \red{...} to highlight that color
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\vel}[1]{\mathbf{#1}}
+\newcommand{\B}[0]{\mathbf{B}}
+
+%uncomment this for single-spaced version
+\draftfalse
+
+\begin{document}
+\SetSinglespace{}
+% preliminary title
+\title{[PHYS 6268] Nonlinear Dynamics: Problem Set 5}
+
+% I defaulted to alphabetical last name, no preference here
+\authors{C. Michael Haynes\affil{1}}
+
+\affiliation{1}{School of Earth and Atmospheric Sciences, Georgia Institute of Technology, Atlanta GA, USA}
+
+
+\section*{Strogatz Book: Problems 5.1.1, 5.1.10, 5.2.12, 6.1.8, 6.2.1, 6.3.11 \& 6.4.7}
+
+
+\newcommand{\Det}[1]{\mathrm{det}\,\mathbb{#1}}
+\newcommand{\tra}[1]{\mathrm{Tr}\,\mathbb{#1}}
+
+
+
+\section{Problem 5.1.1: Ellipses and energy conservation for the harmonic oscillator}
+\label{sec:p1}
+Consider the harmonic oscillator, described by the system
+\begin{equation*}
+    \dot x = \nu \quad , \quad \dot \nu = -\omega^2 x \qquad .
+\end{equation*}
+
+
+\subsection{(a) Show that the orbits are given by ellipses $\omega^2x^2 + \nu^2 = C$, where $C$ is any
+non-negative constant.}
+\label{ssec:p1a}
+
+To do so, we can compute the radius of the orbiting trajectories in phase space by evaluating them along each coordinate axis (i.e., for $x=0$ or $\nu = 0$) at successive orbits. Moreover, the differential matrix operator describing the system admits eigenvalues and eigenvectors that specify the trajectories in phase space. We can write down this matrix and then use its properties to determine information about the eigenvalues, yielding a description of the phase space trajectories themselves. We write the system in vector form, specifying this matrix:
+\begin{equation}
+    \begin{pmatrix}
+        x \\
+        \nu
+    \end{pmatrix}    \equiv \mathbf{x} \implies \mathbf{\dot{x}} =  \begin{pmatrix}
+        0 & 1 \\
+        -\omega^2 & 0
+    \end{pmatrix} \cdot \mathbf{x} \quad .
+\end{equation}
+Hence, the system is traceless. This implies that the eigenvalues are given by 
+\begin{equation*}
+    \lambda_\pm = \pm \frac{2i\sqrt{\Delta}}{2} \quad ,
+\end{equation*}
+where $\Delta \equiv \mathrm{det}\,\begin{pmatrix}
+        0 & 1 \\
+        -\omega^2 & 0
+    \end{pmatrix} = \omega^2$ .
+\par
+Thus, substituting the determinant yields the eigenvalues explicitly,
+\begin{equation*}
+    \lambda_\pm = \pm i\omega \quad ,
+\end{equation*}
+given as a pair of complex conjugate roots with no real part. Hence, the system is of neutral stability, characterized by closed orbits in phase space. The eigenvectors are then 
+\begin{equation*}
+\mathbf{v}_\pm =   \begin{pmatrix}
+        \mp \frac{i}{\omega} \\
+        1
+    \end{pmatrix} \qquad .
+\end{equation*}
+Thus, the general form of the trajectories $x(t)$ is 
+\begin{align*}
+    x(t) = c_1 \mathbf{v}_+ e^{\lambda_+ t} + c_2 \mathbf{v}_- e^{\lambda_- t} \\
+    \implies     x(t) = c_1 \begin{pmatrix}
+        - \frac{i}{\omega} \\
+        1
+    \end{pmatrix} e^{i\omega t} + c_2 \begin{pmatrix}
+        \frac{i}{\omega} \\
+        1
+    \end{pmatrix} e^{-i\omega t} .\\
+\end{align*}
+This implies that each term in $\dot x(t)$ is proportional to the respective term in $x(t)$ multiplied by a factor of $i\omega$ to account for the differentiation w.r.t. time. Hence, the magnitudes differ by $|x(t)| = |\dot x(t)| / \omega$. Via Euler's identity, the complex exponential are nothing more than sinusoids, yielding rotations in the complex plane and producing closed orbits. We can directly solve the system, using a solution of the form 
+\begin{equation*}
+    x(t) = A \sin{(\omega t)+\phi} \quad ,
+\end{equation*}
+where $A,\phi\in\mathbb{R}$ are constants depending on the initial data.
+This solution form is consistent with the system, since differentiating $x(t)$ twice produces $\ddot x(t) = -\omega^2 x(t)$. We can then determine $\nu(t) = \omega A \cos{(\omega t + \phi)}$. From these, we can write
+\begin{equation*}
+    \nu^2(t) = \omega^2 A^2 \cos^2{(\omega t + \phi)} \quad ; \quad x^2(t) = A^2\sin^2{(\omega t + \phi)} \quad ,
+\end{equation*}
+which leads to 
+\begin{equation*}
+    \nu^2(t) + \omega^2 x^2(t) = \omega^2 A^2 \cos^2{(\omega t + \phi)} + \omega^2 \cdot\, A^2\sin^2{(\omega t + \phi)} = \omega^2 A^2 \equiv C\quad ,
+\end{equation*}
+where $C\in\mathbb{R}$ is a constant. Hence, 
+\begin{equation*}
+    \nu^2(t) + \omega^2 x^2(t) = C\quad .
+\end{equation*}
+
+
+
+\subsection{(b) Show that this condition is equivalent to conservation of energy.}
+\label{ssec:p1b}
+
+
+% The shape of the closed orbits also has an interesting physical interpretation. The orbits in Figures 5.1.3 and 5.1.4 are actually ellipses given by the equation above, where C is a constant. In Exercise 5.1.1, you are asked to derive this geometric result, and to show that it is equivalent to conservation of energy
+
+We recall that the potential energy of a harmonic oscillator is proportional to the displacement squared $x^2$, and that the kinetic energy is proportional to velocity squared $\dot x^2 = \nu^2$. We can then multiply by 
+\begin{equation*}
+    \frac{m}{2} (\omega^2 x^2 + \nu^2) = \frac{m}{2} C \qquad ,
+\end{equation*}
+yielding 
+\begin{equation*}
+    \frac{m \omega^2 x^2}{2} + \frac{m \nu^2}{2} = \frac{mC}{2} \qquad .
+\end{equation*}
+It is common to define $k\equiv m\omega^2$ for a Hookean system. We fix $L = mC/2$ as a new constant and arrive at 
+\begin{equation*}
+    \frac{1}{2} k x^2 + \frac{1}{2} m \dot x^2 = L = \mathrm{const.} \qquad ,
+\end{equation*}
+which is equivalent to the statement that mechanical energy is conserved. 
+
+
+
+
+
+
+
+\section{Problem 5.1.10: Attracting and Liapunov Stable}
+\label{sec:p2}
+
+Consider a fixed point $\mathbf{x}^*$ of a system $\mathbf{\dot x} = f(\mathbf{x})$. 
+\par
+We say that $\mathbf{x}^*$ is \emph{attracting} if there is a $\delta>0$ such that $\lim_{t \longrightarrow \infty}\mathbf{x}(t)=\mathbf{x}^*$ whenever $||\mathbf{x}(0)-\mathbf{x}^*||<\delta$. In other words, any trajectory that starts within a distance of $\delta$ of $\mathbf{x}^*$ is guaranteed to converge to $\mathbf{x}^*$ \emph{eventually}. As shown schematically in Figure \ref{fig:p2_prompt}, trajectories that start nearby are allowed to stray from $\mathbf{x}^*$ in the short run, but they must approach $\mathbf{x}^*$ in the long run. 
+\par
+
+In contrast, Liapunov stability requires that nearby trajectories remain close for \emph{all} time. We say that $\mathbf{x}^*$ is \emph{Liapunov stable} if for each $\epsilon>0$, there is a $\delta$ such that $||\mathbf{x}(t) - \mathbf{x}^*||<\epsilon$ whenever $t\geq 0$ and $||\mathbf{x}(0) - \mathbf{x}^*||<\delta$. Thus, trajectories that start within $\delta$ of $\mathbf{x}^*$ remain within $\epsilon$ of $\mathbf{x}^*$ for all positive time (Figure \ref{fig:p2_prompt}).
+\par
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\linewidth]{figs/hw_5.1.10_prompt_fig.png}
+    \caption{\scriptsize{Examples of attracting (left) and Liapunov stable (right) fixed points $\mathbf{x}^*$ of the system $\mathbf{\dot x}=f(\mathbf{x})$.} }
+    \label{fig:p2_prompt}
+\end{figure}
+
+
+Finally, $\mathbf{x}^*$ is \emph{asymptotically stable} if it is both attracting and Liapunov stable.
+\par
+
+For each of the following systems, decide whether the origin is attracting only, Liapunov stable only, asymptotically stable, or none. 
+
+
+\subsection{(a) $\dot x = y \,,\quad \dot y = -4x $}
+\label{ssec:p2a}
+
+The system is only neutrally stable, with a center. \textbf{Thus, the system is Liapunov stable only, but not attracting.}
+
+\subsection{(b) $\dot x = 2y \,,\quad \dot y = x $}
+\label{ssec:p2b}
+
+The system has a saddle point at the origin, with a stable direction and an unstable direction. Hence, the fixed point is only semi-stable and not necessarily attracting. Moreover, trajectories exist that pass near the fixed point and approach $\pm \infty$ at a later time. \textbf{Hence, the system is neither attracting nor Liapunov stable.} 
+
+\subsection{(c) $\dot x = 0 \,,\quad \dot y = x $}
+\label{ssec:p2c}
+
+This system is degenerate with a manifold of fixed points at $x=0$. Points that start within some distance $x$ between the trajectory in phase space and the stable manifold at $x=0$ remain at that distance, since the trajectories in phase space are all parallel to the $y$-axis. However, there is no nonzero ``basin of attraction" in phase space for this stable manifold, since a trajectory must be initialized on it to remain there ($\dot x = 0$ always). \textbf{Thus, the system is not attracting but is Liapunov stable.}
+
+\subsection{(d) $\dot x = 0 \,,\quad \dot y = -y $}
+\label{ssec:p2d}
+
+This simple system can be integrated by inspection, corresponding to a constant value of $x$ with an exponentially decreasing value of $y$. Hence, the system is also degenerate, with the stable manifold now a line specified by $y=0$. All trajectories, regardless of initialization, approach the stable manifold. So, the stable manifold is attractive. However, the problem asks specifically about the \emph{origin}: since there is only any change along the $y$ coordinate, the origin is only semi-attractive along the $y$ dimension and is not generally attractive. However, all trajectories will tend towards $y=0$ and remain at the initial value $x_0$: via the triangle inequality, the distance between each trajectory and the origin will monotonically decrease. \textbf{Hence, the system is not attracting, but Liapunov stable.}
+
+\subsection{(e) $\dot x = -x \,,\quad \dot y = -5y $}
+\label{ssec:p2e}
+
+This system is identical to the one above, except now there \emph{is} decay along the $x$-direction, too. Since the rate of change is quicker for the $y$ coordinate, the system trajectories will tend toward $y=0$ faster than they do towards $x=0$, by a factor of five. In any case, the trajectory will tend towards the origin. Furthermore, all trajectories will also remain within a fixed distance of the origin, retaining Liapunov stability. \textbf{Therefore, the system is both Liapunov stable and attracting.} 
+
+
+\subsection{(f) $\dot x = x \,,\quad \dot y = y $}
+\label{ssec:p2f}
+
+This system represents a ``star" source at the origin. \textbf{It is neither attracting nor Liapunov stable.}
+
+
+
+
+\section{Problem 5.2.12: LRC Circuit }
+\label{sec:p3}
+
+Consider the circuit equation $L\ddot I + R \dot I + I/C = 0$, where $L,C>0$ and $R\geq0$.
+
+
+\subsection{(a) Rewrite the equation as a two-dimensional linear system}
+\label{ssec:p3a}
+
+To do so, we define $\Phi \equiv \dot I$, a variable representing the time derivative of the current $I$ in the circuit. The physical interpretation of $\Phi$ is the time derivative of the electromagnetic fields generated by the current, related to the flux of the field's energy. 
+\par
+This allows us to rewrite the circuit equation above as 
+\begin{align}
+    \label{eqn:LRC}
+    \dot I = \Phi\qquad \qquad \\
+    \dot \Phi = -\frac{1}{L} \left(R \Phi + \frac{I}{C} \right ) \quad ,
+\end{align}
+where the resistance $R$, the inductance $L$, and the capacitance $C$ are all positive constants. Then, it follows that the 2D system in equation (\ref{eqn:LRC}) can be written in matrix form:
+\begin{equation*}
+    \frac{\mathrm{d}}{\mathrm{d}t} \begin{pmatrix} I \\ \Phi \end{pmatrix}
+    = \mathbf{\dot{I}} = \mathbb{A}
+    \cdot \mathbf{I} \quad ; \quad  
+    \mathbb{A}\equiv  \begin{pmatrix}
+        0 & 1 \\
+        -1/CL & -R/L
+    \end{pmatrix}    
+\end{equation*}
+Hence, the second-order circuit equation is readily written as a 2D first-order system.
+\par
+
+\subsection{(b) Show that the origin is asymptotically stable if $R>0$ and neutrally stable if $R=0$.}
+\label{ssec:p3b}
+
+Inspection of the system reveals that the only fixed point $\mathbf{I}^*$ is given by the origin $(I,\Phi) = (0,0)$. Otherwise, for $\dot \Phi$ to vanish, $\Phi$ itself must be nonzero, driving a change in $\dot I$. This is similar to oscillator systems studied previously in class, where fixed points do not exist away from the equilibrium position (in this case, co-located with the origin).
+\par
+To assess the stability of the fixed points, we consider the matrix governing the first-order system $\mathbb{A}$. The matrix $\mathbb{A}$ admits a pair of eigenvalues $\lambda_\pm$, which correspond to the roots of the characteristic polynomial of $\mathbb{A}$. These eigenvalues inform us about the stability of the system along each corresponding eigendirection, as discussed extensively in class and in Strogatz. The eigenvalues of the system can be written in terms of the trace ($\tra{A}=-R/L$) and determinant ($\Det{A}=1/LC$) of $\mathbb{A}$, such that 
+\begin{equation}
+\label{eqn:evals}
+    \lambda_\pm = \frac{\tra{A} \pm \sqrt{\tra{A}^2 - 4 \Det{A}}}{2} \qquad ,
+\end{equation}
+allowing us to classify the system using exclusively $\tra{A}$ and $\Det{A}$. If $R>0$, then the trace $\tra{A}=-R/L<0$ for all values of $L$. This corresponds to a pair of eigenvalues with a negative real part (see equation (\ref{eqn:evals})), which implies that the trajectories $\propto e^{\lambda_\pm t}$ \emph{decay} as time evolves towards $t\longrightarrow\infty$. In this configuration, the radical in equation (\ref{eqn:evals}) can be real or complex. In either case, the system is asymptotically stable: if $\lambda\in\mathbb{R}$, then the fixed point at the origin becomes a node; if $\lambda \in \mathbb{C}$, then the system corresponds to spiral orbits in the phase plane, converging towards the origin as time $t$ increases.
+\par
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=1\linewidth]{figs/LRC_phase_portrait_1.png}
+    \caption{\scriptsize{Phase portrait for the system given by equation (\ref{eqn:LRC}), with the discriminant $D>0$. The value of the resistance is $R=3$.}}
+    \label{fig:LRC_case1}
+\end{figure}
+On the other hand, if $R=0$, then the trace of the system $\tra{A}=0$ vanishes. In this case, the solutions to the system are described by complex eigenvalues since the term in the radical from equation (\ref{eqn:evals}) becomes negative, driven by $\Det{A}>0$. Hence, the solutions decay if the real part of the eigenvalue is less than zero, and the fixed point is a stable spiral. However, since the real part of the eigenvalue is $\tra{A}/2$, this also vanishes. Hence, the eigenvalues of the system are a symmetric, complex-conjugate pair $\lambda_\pm = \pm\alpha i, \quad \alpha\in\mathbb{R}$. In this case, phase space becomes a \emph{center}, with an infinite family of closed-orbit trajectories in phase space circling the origin. This corresponds to a neutrally-stable system, since the origin is neither attracting or repelling for trajectories as time approaches infinity. This configuration physically corresponds to an undamped oscillator: in the context of electrical current flow, this is synonomous with a vanishing resistance, or \emph{superconductivity}.
+\par
+
+It is worth mentioning that the solutions to the system described by $\mathbb{A}$ can be viewed as a time-dependent transformation, transforming the state of the system some time forward with the variable $t$. This means that the ``area" of the transformation, or the deformation of the distances between neighboring points, corresponds to 
+\begin{equation*}
+    A_t = \mathrm{det}\,e^{\mathbb{A}t} = e^{\tra{A} \,t} \, .
+\end{equation*}
+This means that if $\tra{A}$ vanishes, the mapping of the system evolution through time preserves the area of the flow. Hence, there should be no divergence between trajectories, and the center with closed, circular orbits describes the entire phase plane. 
+\par
+
+
+\subsection{(c) Classify the fixed point at the origin, depending on whether $R^2C-4L$ is positive, negative, or zero, and sketch the phase portrait in all three cases. }
+\label{ssec:p3c}
+
+
+
+As shown by equation (\ref{eqn:evals}), the discriminant of the system is given by $\tra{A}^2 - 4 \Det{A}$ which becomes $D=R^2C - 4L$ after some manipulation. Therefore, as $D$ changes from negative, to zero, to positive, the qualitative behavior of the system in the phase plane changes completely. This corresponds to the eigenvalues of the system (equation (\ref{eqn:evals})) being real, repeated, or complex. This is illustrated by Figure 5.2.8 in Strogatz. 
+\par
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\linewidth]{figs/LRC_phase_portrait_2.png}
+    \caption{\scriptsize{Phase portrait for the system given by equation (\ref{eqn:LRC}), with the discriminant $D=0$. The value of the resistance is $R=2$.}}
+    \label{fig:LRC_case2}
+\end{figure}
+Starting with $D>0$, this corresponds to a system with real eigenvalues. Since the determinant is greater than zero, $\lambda_\pm$ are the real with the same sign. In this case, $\tra{A}<0$, so both $\lambda_\pm < 0$. The stable node is shown in Figure \ref{fig:LRC_case1}, with different ``velocities" along the different eigen-directions. 
+\par
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\linewidth]{figs/LRC_phase_portrait_3.png}
+    \caption{\scriptsize{Phase portrait for the LRC circuit system (equation (\ref{eqn:LRC})), with the discriminant $D<0$. The value of the resistance is $R=1$.}}
+    \label{fig:LRC_case3}
+\end{figure}
+Next, we consider the special case where $D=0$. We modulate the discriminant and qualitative system behavior here by fixing $L=C=1$, and letting $R$ vary. For $D>0$, we let $R=3$. For $D=0$, this implies that $R=2$. This corresponds to a system with two repeated roots: the ``more" stable direction becomes degenerate and drives the creation of a stable manifold of degenerate nodes along the corresponding eigenvector, while the ``less" stable direction continues to spiral and shoot towards the fixed point at the origin. This is depicted in Figure \ref{fig:LRC_case2}.
+\par
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\linewidth]{figs/LRC_phase_portrait_4.png}
+    \caption{\scriptsize{Phase portrait for the system described by equation (\ref{eqn:LRC}), with the discriminant $D=0$. The value of the resistance is $R=0$, and thus the trace of the system vanishes $\tra{A}=0$.}}
+    \label{fig:LRC_case3b}
+\end{figure}
+In the event that $D<0$, the eigenvalues immediately become complex. This implies that the behavior of the system is now oscillatory, and we expect either a source or a sink to describe the fixed point at the origin. For values of $R\neq0$ that satisfy $D<0$, this is the case. The negative real part of the eigenvalues, determined by $\tra{A}$, implies that the fixed point is asymptotically stable in this case. The system is characterized by a spiral towards the attractor at the origin.
+\par
+
+However, there is a special case when $D<0$. As found in section \ref{sec:p3b}, if $R=0$, then the trace of the system vanishes. This means that the eigenvalues have \emph{no real part}: rather, trajectories perpetually orbit in phase space, neither attracted toward the origin or originating from it and propagating outward. This case is visualized in Figure \ref{fig:LRC_case3b}, where the neutral stability of the \emph{center} configuration is evident. 
+
+
+
+
+
+
+
+\section{Problem 6.1.8: (Computer work) Plot computer-generated phase portraits of the van der Pol oscillator $\dot x = y \,,\quad \dot y = y(1-x^2) - x $ }
+\label{sec:p4}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figs/VDP_phase_portrait_1.jpg}
+    \caption{\scriptsize{Phase portrait for the van der Pol oscillator.}}
+    \label{fig:VDP1}
+\end{figure}
+
+To do so, we employ the $\verb|numpy.meshgrid()|$ routine to create a numerical lattice grid to evaluate the system on. We define the system as described above, and visualize it using the $\verb|matplotlib.pyplot.streamplot()|$ routine. With 
+$$\verb|matplotlib.pyplot.streamplot().broken_streamlines(False)|$$
+we force the continuity of trajectories in phase space, and we color each point along the curve by the magnitude of the local rate of change: $\sqrt{\dot x^2 + \dot y^2}$. Examples are shown in Figures (\ref{fig:VDP1}) and (\ref{fig:VDP5}), with the colorbar indicating values for the local rate of change.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figs/VDP_phase_portrait_5.jpg}
+    \caption{\scriptsize{Phase portrait for the van der Pol oscillator. This system is identical to that in Figure \ref{fig:VDP1}, shown on a larger domain.}}
+    \label{fig:VDP5}
+\end{figure}
+
+
+
+
+\section{Problem 6.2.1: We claimed that different trajectories can never intersect. But in many phase portraits, different trajectories appear to intersect at a fixed point. Is there a contradiction here?}
+\label{sec:p5}
+
+% uniqueness theorem => phase space trajectories do not cross, since the vector field points in a single direction 
+
+% trajectories are represented by the evolution of $x(t)$ through the vector field given by $f$
+
+% hence, a fixed point is a special case of a trajectory itself. It represents such a trajectory that $x(t+dt) = x(t) because f(x)=0$. 
+
+% Thus, trajectories in phase space tend to only approach or diverge from a fixed point, but they never interact with them (i.e., pass through them) in a way that would violate the uniqueness theorem obeyed by dynamical systems.
+
+
+By the uniqueness theorem of ordinary differential equations, phase space trajectories can never intersect. This follows from the notion that the vector field describing the system only ever points in a \emph{single} direction, regardless the dimensionality of the phase space describing the system's configuration. Trajectories are represented by the evolution $x(t)$ through the vector field given by $f$, if the system is described by $\dot x = f(x)$. Hence, a fixed point is a \emph{special case} of a phase space trajectory itself. It represents such a trajectory that $\mathbf{x}(t+\mathrm{d}t) = \mathbf x(t)$ because, at that location, $f(\mathbf x)=0$. 
+\par
+
+Thus, trajectories in phase space tend to only ever approach towards or diverge from a fixed point. As neighboring trajectories ``fall towards" or ``emanate from" attractive or repelling manifolds, they do so in a unique way such that they do not intersect each other, even though their density changes. Such trajectories approaching or receding from a fixed point never interact with the fixed point (that is, pass through it) in a way that would violate the uniqueness theorem obeyed by all dynamical systems described by a system of ordinary differential equations. 
+\par
+
+In other words, trajectories do not cross each other when the reach a fixed point, but rather, the coalesce without intersecting. No trajectory can cross through a fixed point, since that would violate the uniqueness theorem. However, many unique trajectories may all converge to the same fixed point and remain unique. 
+
+
+
+
+
+\section{Problem 6.3.11: Nonlinear terms can change a star into a spiral}
+\label{sec:p6}
+Here’s another example that shows that borderline fixed points are sensitive to nonlinear terms. Consider the system in polar coordinates given by $\dot r = -r$, $\dot \theta = 1/\ln{r}$.
+
+
+\subsection{(a) Find $r(t)$ and $\theta(t)$ explicitly, given the initial condition $(r_0,\theta_0)$.}
+\label{ssec:p6a}
+
+Since the system is separated along each dimension, we have a decoupled pair of ordinary differential equations that we can integrate for the trajectories. We begin with the radial coordinate:
+\begin{align*}
+    \dot r = -r \\
+    \implies \mathrm{d}r = -r\mathrm{d}t\\
+    \implies \frac{\mathrm{d}r}{r} = - \mathrm{d}t\\
+    \implies \ln{|r|} = -t + c,\quad c\in\mathbb{R}\\
+    \implies r(t) = Ce^{-t} = r_0 e^{-t}\\
+\end{align*}
+which shows exponential decay, as expected. Then, for $\theta$, we can calculate the time dependence directly using the expression for $r(t)$:
+\begin{align*}
+    \dot \theta = \frac{1}{\ln{r}} \\
+   \implies  \dot \theta = \frac{1}{\ln{(r_0e^{-t}})} \\
+    \implies  \dot \theta= -\frac{1}{t(1+\ln{r_0})}
+\end{align*}
+which becomes 
+\begin{align*}
+        \implies \mathrm{d}\theta = - \frac{\mathrm{d}t}{t(1+\ln{r_0})}\\
+    \implies -(1+\ln{r_0})\,\mathrm{d}\theta = \frac{\mathrm{d}t}{t}
+\end{align*}
+This expression can be integrated to yield
+\begin{equation*}
+    \theta (t) = -\frac{\ln{t}}{1 + \ln{r_0}} \qquad .
+\end{equation*}
+Hence, we have that 
+\begin{equation}
+    r(t) = r_0 e^{-t} \quad ; \theta (t) = -\frac{\ln{t}}{1 + \ln{r_0}} \qquad .
+\end{equation}
+
+
+\subsection{(b) Show that $r(t)\longrightarrow 0$ and $|\theta(t)|\longrightarrow\infty$ as $t\longrightarrow\infty$. Therefore, the origin is a stable spiral for the nonlinear system.}
+\label{ssec:p6b}
+
+The radial coordinate vanishes as $t\longrightarrow\infty$, as can be seen by 
+\begin{equation*}
+    \lim_{t\longrightarrow\infty} r(t) = \lim_{t\longrightarrow\infty} r_0 e^{-t} = 0 \qquad .
+\end{equation*}
+Then, for the $\theta$ coordinate, we have that 
+\begin{equation*}
+    \lim_{t\longrightarrow\infty} \theta(t) = - \lim_{t\longrightarrow\infty} \frac{\ln{t}}{1 + \ln{r_0}} = -\infty \quad ,
+\end{equation*}
+such that $|\theta(t)|\longrightarrow+\infty$. Thus, the radial coordinate approaches zero, and the theta coordinate grows unbounded. This corresponds to trajectories that spiral in towards the origin. 
+
+\subsection{(c) Write the system in Cartesian ($x,y$) coordinates.}
+\label{ssec:p6c}
+
+Using the conversion between Cartesian and polar coordinates, we have that 
+\begin{equation*}
+    x(t) = r(t) \cos{\theta(t)} = r_0 e^{-t} \cos{\left(\frac{\ln{t}}{1 + \ln{r_0}}\right)}
+\end{equation*}
+using the evenness of $\cos$. Furthermore, we can directly write $y(t)$:
+\begin{equation*}
+    y(t) = r(t) \sin{\theta(t)} = - r_0 e^{-t} \sin{\left(\frac{\ln{t}}{1 + \ln{r_0}}\right)} \qquad .
+\end{equation*}
+The system is therefore readily written in Cartesian coordinates, however, it is highly nonlinear.
+
+\subsection{(d) Show that the linearized system about the origin is $\dot x = -x$, $\dot y = -y$. Thus, the origin is a stable star for the linearized system. }
+\label{ssec:p6d}
+
+The linearized system can be calculated by transforming the differential equations themselves, rather than their solutions. To do so, we write
+\begin{align*}
+    \dot r = -r \longrightarrow \frac{\mathrm{d}}{\mathrm{d}t} \sqrt{x^2 + y^2} = - \sqrt{x^2 + y^2}\\
+    \dot \theta = \frac{1}{\ln{r}} \longrightarrow \frac{\mathrm{d}}{\mathrm{d}t}\arctan{\left(\frac{y}{x}\right)} = \frac{1}{\ln{\sqrt{x^2+y^2}}} \quad ,
+\end{align*}
+using the standard transformation from polar coordinates to Cartesian coordinates. From the first expression, we can write
+\begin{equation*}
+    \frac{\mathrm{d}}{\mathrm{d}t} (x^2 + y^2)^\frac{1}{2} = \frac{1}{2}(x^2 + y^2)^{-\frac{1}{2}} (2 x \dot x + 2 y \dot y ) = - (x^2 + y^2)^\frac{1}{2} \quad ,
+\end{equation*}
+which can be manipulated to obtain an expression relating $x$ and $y$ to $\dot x$ and $\dot y$. In order to do that, we rearrange to isolate the terms with $\dot x$ and $\dot y$:
+\begin{align*}
+    \frac{1}{2}(x^2 + y^2)^{-\frac{1}{2}} (2 x \dot x + 2 y \dot y ) = - (x^2 + y^2)^\frac{1}{2}\\
+    \implies  ( x \dot x +  y \dot y ) = - (x^2 + y^2)\\
+    \implies x \dot x + y \dot y = -x^2 - y^2 \\
+    \implies \dot x + \frac{y \dot y}{x} = -x - y^2\\
+    \implies \frac{\dot x}{y} + \frac{\dot y}{x} = -\frac{x}{y} - \frac{y}{x}\\
+\end{align*}
+Comparing the terms on the right and left hand sides based on the denominator reveals that $\dot x = -x; \dot y = -y$ satisfies the expression and is equivalent to the originating statement, which was merely a conversion of the system from section \ref{ssec:p6a} using polar coordinates. 
+
+\section{Problem 6.4.7: Two-mode Laser}
+\label{sec:p7}
+
+According to Haken (1983, p. 129), a two-mode laser produces two different kinds of photons with numbers $n_1$ and $n_2$. By analogy with the simple laser model discussed in section 3.3, the rate equations are 
+
+\begin{align*}
+    \dot n_1 = G_1 N n_1 - K_1 n_1 \\
+    \dot n_2 = G_2 N n_2 - K_2 n_2,\\
+\end{align*}
+where $N(t) = N_0 - \alpha_1 n_1 - \alpha_2 n_2$ is the number of excited atoms. The parameters $G_1,\,G_2,\,K_1,\,K_2,\,\alpha_1,\,\alpha_2,\,N_0 \,>0$. 
+
+
+
+\subsection{(a) Discuss the stability of the fixed point $n_1^* = n_2^* = 0$.}
+\label{ssec:p7a}
+
+To determine the stability of the fixed point, we write the system in the following matrix form:
+\begin{equation*}
+    \frac{\mathrm{d}}{\mathrm{d}t} \begin{pmatrix} n_1 \\ n_2 \end{pmatrix}
+    = \begin{pmatrix} G_1 N n_1 - K_1 n_1\\ G_2 Nn_2 - K_2 n_2 \end{pmatrix}
+    = \begin{pmatrix} G_1 (N_0 - \alpha_1 n_1 - \alpha_2 n_2 ) n_1 - K_1 n_1\\ G_2 (N_0 - \alpha_1 n_1 - \alpha_2 n_2 ) n_2 - K_2 n_2 \end{pmatrix} .
+\end{equation*}
+Distributing the terms across the expansion of $N$, we find that 
+\begin{equation*}
+    \frac{\mathrm{d}}{\mathrm{d}t} \begin{pmatrix} n_1 \\ n_2 \end{pmatrix}
+    = \begin{pmatrix} G_1 N_0 n_1 - G_1 \alpha_1 n_1^2 - G_1 \alpha_2 n_1 n_2  - K_1 n_1\\ G_2 N_0 n_2 - G_2 \alpha_1 n_1 n_2 - G_2 \alpha_2 n_2^2  - K_2 n_2 \end{pmatrix}
+\end{equation*}
+which can be organized by term in $n$
+\begin{equation*}
+    \frac{\mathrm{d}}{\mathrm{d}t} \begin{pmatrix} n_1 \\ n_2 \end{pmatrix}
+    = \begin{pmatrix} (G_1 N_0 -K_1)n_1 - G_1 n_1 ( \alpha_1 n_1 +  \alpha_2 n_2 ) \\ 
+    (G_2 N_0 - K_2 )n_2 - G_2 n_2 (\alpha_1 n_1 + \alpha_2 n_2) \end{pmatrix}
+\end{equation*}
+Since this system is nonlinear ($n_1 n_2$ or quadratic terms), the trajectories (and stability of the system) is not as simple as determining the eigenvalues and eigenvectors for some matrix, as was in, e.g., section \ref{sec:p1}. Thus, we must calculate the matrix of stability:
+\begin{equation*}
+    \mathbb S(n_1,n_2) = \begin{pmatrix}
+        \frac{\partial\dot n_1}{\partial n_1} & \frac{\partial\dot n_1}{\partial n_2} \\
+        \frac{\partial\dot n_2}{\partial n_1} & \frac{\partial\dot n_2}{\partial n_2}
+    \end{pmatrix} \quad ,    
+\end{equation*}
+which can be computed directly via the system above. We have that
+\begin{equation*}
+    \mathbb S(n_1,n_2) = \begin{pmatrix}
+        (G_1 N_0 - G_1 \alpha_2 n_2 - K_1) - 2 G_1 \alpha_1 n_1 & -G_1 \alpha_2 n_1 \\
+        - G_2 \alpha_1 n_2 & (G_2N_0 - G_2 \alpha_1 n_1 - K_2) - 2G_2\alpha_2 n_2
+    \end{pmatrix} \quad .    
+\end{equation*}
+Evaluated for $n_1^*=n_2^*=0$, we find that 
+\begin{equation*}
+    \mathbb S(0,0) = \begin{pmatrix}
+        (G_1 N_0 - G_1 \alpha_2 n_2 - K_1) & 0 \\
+        0& (G_2N_0 - G_2 \alpha_1 n_1 - K_2)
+    \end{pmatrix} \quad .    
+\end{equation*}
+Since the stability matrix is diagonal, we have that $\Det{S} = \tra{S} - 0 = \tra{S}$. Then, the eigenvalues are given by 
+\begin{equation*}
+    \lambda_\pm = \frac{\tra{S}}{2} \pm \sqrt{\frac{\tra{S}^2}{4} - \tra{S}} \qquad ,
+\end{equation*}
+yielding an expression for the eigenvalues in terms of known constants and $n_1,n_2$. Hence, when $n_1=n_2=0$, we have that $\tra{S}>0$ if one of the two following conditions occurs:
+\begin{align*}
+    (i)\longrightarrow G_1 N_0 > K_1 \quad \mathrm{and} \quad G_2 N_0 > K_2 \\
+    (ii)\longrightarrow G_1 N_0 < K_1 \quad \mathrm{and} \quad G_2 N_0 < K_2 \quad .
+\end{align*}
+This implies that if (i) or (ii) is satisfied, then the system is unstable, since regardless of whether the eigenvalues are real or complex, their real part is nonvanishing and positive. In the event that $\tra{S}=0$ vanishes, then the eigenvalues are both repeated at zero, and we have a constant vector field (neutrally stable). If $\tra{S}<0$, however, then the system has a negative real part of each eigenvalue, and the trajectories should tend towards the fixed point at the origin as time grows in this case. 
+
+
+\subsection{(b) Find and classify any other fixed points that may exist.}
+\label{ssec:p7b}
+
+I could not determine any other fixed points to the system, since the equations for $\dot n_1$ and $\dot n_2$ contain mixed terms and quadratic terms. Due to the quadratic nature of the system, the system of equations for $\dot n_1$ and $\dot n_2$ should have between zero and two fixed points.  
+
+
+
+\subsection{(c) Depending on the values of the various parameters, how many qualitatively different phase portraits can occur? For each case, what does the model predict about the long-term behavior of the laser?}
+\label{ssec:p7c}
+
+The qualitatively different phase portraits for the system are as follows. If conditions (i) or (ii) are satisfied, then the system is an unstable node at the origin (that is, populations $n_1,n_2$ grow at large $t$, regardless of the behavior at small $t$). If conditions (i) and (ii) are not satisfied and $\tra{S}=0$, then the system is represented by a neutrally stable, fixed vector field, since the eigenvalues $
+\lambda_\pm=0$ (i.e., populations $n_1,n_2$ remain constant). If conditions (i) and (ii) are not satisfied and $\tra{S}<0$, then the system is either a stable node at the origin $(\lambda_\pm\in\mathbb{R})$ or a stable in-spiral towards the origin $(\lambda_\pm\in\mathbb{C})$ ($n_1,n_2$ fall until they both vanish, and whether the drop is monotonic or oscillatory depends on whether the eigenvalues are real or complex). See also the discussion in section \ref{ssec:p7a}.
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\section{Software Usage}
+The entirety of the work was carried out on pen and paper prior to typesetting, except for the plotting: this was completed using python (\verb|numpy| and \verb|matplotlib|). 
+
+%\section{Acknowledgments}
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
+% \clearpage
+
+%\bibliography{MHD}
+\end{document}
