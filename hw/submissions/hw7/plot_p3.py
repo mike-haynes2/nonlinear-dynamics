@@ -35,6 +35,13 @@ pp = ax.streamplot(X, Y, dX, dY, color=(mag), cmap = 'turbo', linewidth=0.9, den
 cbar = fig.colorbar(pp.lines)
 cbar.set_label(r'${\sqrt{\dot{x}^2 + \dot{y}^2}}$')
 
+
+circleI = plt.Circle((0,0),(1./np.sqrt(2)), color='r',fill=False,zorder=1000)
+circleO = plt.Circle((0,0),(1.), color='r',fill=False,zorder=1000)
+
+ax.add_patch(circleI)
+ax.add_patch(circleO)
+
 plt.xlabel(r'$x$')
 plt.ylabel(r'$y$')
 
@@ -42,7 +49,7 @@ ax.set_xlim(xmin,xmax)
 ax.set_ylim(ymin,ymax)
 ax.grid()
 
-plt.title('Phase Portrait: 7.3.1(a) ')
+plt.title('Phase Portrait with Trapping Region & Limit Cycle: 7.3.1 ')
 
 plt.show()
 
