@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def sys(x,y,a,b):
-    return x*(b-x-(y/(1.+x))), y*((x/(1+x)) - a*y)
+    return (1-(b+1)*x + a*(x**2)*y), (b*x - a*(x**2)*y)
 
 
 
@@ -24,7 +24,7 @@ Xarr = np.arange(start=xmin,stop=xmax,step=res)
 Yarr = np.arange(start=ymin,stop=ymax,step=res)
 
 X, Y = np.meshgrid(Xarr,Yarr)
-dX, dY = sys(X,Y, a=5./45.,b=3.)
+dX, dY = sys(X,Y, a=1.,b=1.)
 mag = np.sqrt(dX**2. + dY**2.)
 
 
@@ -48,10 +48,10 @@ ax.set_xlim(xmin,xmax)
 ax.set_ylim(ymin,ymax)
 ax.grid()
 
-plt.title(r'Problem 4: supercritical')
+plt.title(r'Brusselator')
 
-#plt.show()
+plt.show()
 
-plt.savefig('phase_portrait_4_sup.png', dpi=290.)
-plt.close()
+# plt.savefig('phase_portrait_4.png', dpi=290.)
+# plt.close()
 
