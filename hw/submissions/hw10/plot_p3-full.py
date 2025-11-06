@@ -26,7 +26,7 @@ Yarr = np.arange(start=ymin,stop=ymax,step=res)
 
 X, Y = np.meshgrid(Xarr,Yarr)
 
-alphs = [0.1,2]
+alphs = [0.1,1]
 Ivals = [0.,0.5,1.,1.5,2]
 
 fig, ax = plt.subplots(len(Ivals), len(alphs), figsize=(6.6,10))
@@ -48,7 +48,7 @@ for i, alpha in enumerate(alphs):
             if alpha==0.1:
                 ax[j,i].set_title(r'$\alpha=1/10$')
             else:
-                ax[j,i].set_title(r'$\alpha=2$')
+                ax[j,i].set_title(r'$\alpha=1$')
         if i == 0:
             ax[j,i].set_ylabel(r'$\dot \phi$')
         if I == 2.:
@@ -62,6 +62,6 @@ fig.suptitle(r'Driven pendulum: Comparison of Regimes')
 fig.tight_layout()
 #plt.show()
 
-plt.savefig('phase_portrait_all_3.png', dpi=320.)
+plt.savefig('phase_portrait_all_3_a1.png', dpi=320.)
 plt.close()
 

@@ -29,7 +29,7 @@ X, Y = np.meshgrid(Xarr,Yarr)
 
 
 
-dX, dY = sys(X,Y, w1=1.,w2=1.)
+dX, dY = sys(X,Y, w1=0.5,w2=1.)
 mag = np.sqrt(dX**2. + dY**2.)
 
 
@@ -53,10 +53,10 @@ ax.set_xlim(xmin,xmax)
 ax.set_ylim(ymin,ymax)
 ax.grid()
 
-plt.title(r'Oscillator Death System $\omega_1=\omega_2=\frac{1}{2}$')
+plt.title(r'Oscillator Death System $\omega_1=\frac{1}{2},\quad \omega_2=1$')
 
 #plt.show()
 
-plt.savefig('phase_portrait_p4_p5p5_zoomed.png', dpi=290.)
+plt.savefig('phase_portrait_p4_p51_zoomed.png', dpi=290.)
 plt.close()
 
