@@ -1,0 +1,139 @@
+10. Index theory. Limit Cycles
+Reading: Chapter 6, section 6.9
+Optional viewing: Wolfram demo: Topological Singularities
+Reading: Chapter 7, section 7.1-7.2
+video   Cvitanović lecture 10
+video   Rant on tangent bundles  |  video   Rant on professor's job (best skipped)
+video   Strogatz lecture 7
+video   Strogatz lecture 8
+HW5: 5.1.1, 5.1.10, 5.2.12, 6.1.8, 6.2.1, 6.3.11, 6.4.7
+
+September 23
+11. Limit cycles. Relaxation oscillators
+Reading: Chapter 7, section 7.3-7.5
+Chris says: use a computer to do plots - in the long run, it is faster, and it's what you need to learn anyhow.
+video   Cvitanović lecture 11
+video   Strogatz lecture 9
+video   Strogatz lecture 10
+
+September 25
+12. Perturbation theory. Averaging
+Reading: Chapter 7, section 7.6
+Reading: Bender and Orszag chapter 7, sect. 7.1, example 1
+video   Cvitanović lecture 12
+video   Rant on divergent series (best skipped)
+video   Strogatz lecture 11
+HW6: 6.5.6, 6.6.3, 6.6.7, 6.7.1
+
+September 30
+13. Bifurcations in two dimensions
+Reading: Chapter 8, section 8.1
+video   Cvitanović lecture 13  |  video   lecture 13a  |  video   lecture 13b
+video   Strogatz lecture 12
+video   Ross : Bifurcations in 2D, Part 1
+
+October 2
+14. Hopf bifurcations, chemical oscillations
+Reading: Chapter 8, sections 8.2, 8.3
+video   Cvitanović lecture 14  |  video   lecture 14a	
+video   Strogatz lecture 13
+HW7: 7.1.6, 7.2.9, 7.3.1 due October 16.
+
+October 6-7
+Fall break
+
+October 9
+15. Global bifurcations of cycles
+Reading: Chapter 8, sections 8.4, 8.5
+video   Cvitanović lecture 15
+video   Rant on Poincare sections (maybe helpful)
+video   Strogatz lecture 14
+
+October 14
+Midterm exam
+9:30 - 10:45pm Mason 2117; see instructions
+Grade distribution
+
+October 16
+16. Quasiperiodicity; Poincare maps
+Reading: Chapter 8, sections 8.6, 8.7
+video   Cvitanović lecture 16 : 8.6  |  video   Cvitanović lecture 16 : 8.7	
+video   Strogatz lecture 14 start at 44:00
+video   Christiaan who? ah, like Antony van Leeuwenhoek...
+Due: HW7
+HW8: 7.5.4, 7.6.3, 7.6.6, 7.6.17
+
+October 21
+17. Lorenz. Finite time stability
+Reading: Chapter 9, Sect 9.0 (skip Sect 9.1 A Chaotic Waterwheel !)
+Reading: ChaosBook Sect 4.1
+Reading: Superficial Stupidity lecture 17
+video   Cvitanović lecture 17 : Lorenz. Chaos!
+video   Cvitanović lecture 17 : Stability
+
+October 23
+18. Lorenz equations
+Reading: Chapter 9, Sect 9.2
+Reading: ChaosBook Sect 4.7
+video   Cvitanović lecture 18
+video   Strogatz lecture 17
+HW9: 8.1.8, 8.1.11, 8.2.1, 8.2.9, 8.3.1
+
+October 28
+19. Strange attractors. Chaos
+Reading: Chapter 9, Sects 9.2, 9.3, 9.4
+video   Cvitanović lecture 19 : Chaos  |  video   Cvitanović lecture 19 : 1d maps
+video   Strogatz lecture 18
+
+October 30
+20. One-dimensional maps
+Reading: Chapter 10, Sects 10.1 to 10.5
+Reading: ChaosBook slides - "discrete time dynamics"
+Reading: ChaosBook slides - "what is "chaos"?"
+Optional: Matlab simulations of the Rossler system :
+       Reduction to 2D and 1D maps and stretching of phase space volumes
+video   Cvitanović lecture 20 : Chaos yesterday  |  Optional: video   lecture 20 : Chaos today
+video   Cvitanović rant 20 : On order & chaos  |  Optional: video   Cvitanović enters a bar
+video   Strogatz lecture 19
+HW10: 8.4.2, 8.4.12, 8.5.2, 8.6.1, 8.7.5
+
+November 4
+21. Experimental nonlinear dynamics
+All optional : explore "Chaos" at Georgia Tech
+Chaos   |   Patterns   |   Robophysics   |   Agility   |   Control
+Turbulence : A stroll through 61,506 dimensions  |  video   overview
+Flavio Fenton: spiral wave demonstration
+video   lecture 21 : 1 Fentonsecond
+
+November 6
+22. Universality
+Reading: Chapter 10, Sects 10.1 to 10.3, 10.5, 10.6
+Optional reading, ChaosBook.org bootleg: Universality in transitions to chaos
+HW11: 9.3.1, 9.3.8, 9.3.9, 9.3.4
+video   Cvitanović lecture 22
+video   Strogatz lecture 20
+
+November 11
+23. Renormalization theory
+Reading: Chapter 10, Sects 10.7
+Optional reading: A not so short history of Universal Function
+video   Cvitanović lecture 23  |  Optional: video   Are clouds supercomputers in the sky?
+video   Strogatz lecture 21
+video   Strogatz lecture 22
+
+November 13
+24. Fractals/schmactals
+Reading: Chapter 11 (mostly skim over)
+Optional reading: ChaosBook.org Fractals / schmactals
+ChaosBook figure "fractal lens"
+video   Cvitanović lecture 24
+video   Strogatz lecture 23
+Fractals in nature, biology, and mathematics.
+HW12: 10.1.11, 10.2.6 (see comments for 10.2.3), 10.3.11, 10.4.1 - due November 20
+
+November 18
+25. Strange attractors
+Reading: Chapter 12, Sects 12.0 to 10.3, Sect 12.5
+Smale says - Smale does
+video   Cvitanović lecture 25  |  Optional: video   ChaosBook week 7 : Stretch, fold, prune?
+video   Strogatz lecture 24
